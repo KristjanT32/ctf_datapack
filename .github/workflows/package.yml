@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Package and Release Datapack
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    tags: 'v*'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Zip datapack
+      run: |
+        mkdir output
+        cd capture_system
+        zip -r ../output/capture_system.zip ./
+
+    - name: Delete existing 'latest' tag (if exists)
+      run: |
+        git tag -d latest || true
+        git push --delete origin latest || true
+
+    - name: Create and push 'latest' tag
+      run: |
+        git tag latest
+        git push origin latest
+
+    - name: Create release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: latest
+        name: Release v${{ github.ref_name }} (latest)
+        files: output/capture_system.zip
+      env:
+        GITHUB_TOKEN: ${{ secrects.GITHUB_TOKEN }}
+          
