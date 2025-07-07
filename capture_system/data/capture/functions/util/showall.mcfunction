@@ -1,0 +1,1 @@
+execute as @e[tag=ActivePoint] at @s run data modify entity @s CustomNameVisible set value 1b

@@ -1,0 +1,1 @@
+execute as @e[tag=ActivePoint] at @s run tag @s add Disabled
