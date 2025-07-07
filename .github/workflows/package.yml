@@ -40,5 +40,5 @@ jobs:
         name: Release v${{ github.ref_name }} (latest)
         files: output/capture_system.zip
       env:
-        GITHUB_TOKEN: ${{ secrects.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
