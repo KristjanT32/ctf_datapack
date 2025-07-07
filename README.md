@@ -26,7 +26,6 @@ and then start filling up as the opposite team claims the area.
 - `/function capture:util/hideall` - hides all capture points' name tags
 - `/function capture:point/unclaim` - unclaims (uncaptures) a nearby capture point
 - `/function capture:point/unclaimall` - unclaims all existing capture points
-
 - `/function capture:util/start` - starts the game (enables the capture points)
 - `/function capture:util/stop` - stops the game (disables the capture points)
 - `/function capture:util/reset` - resets the game (disables the capture points and uncaptures them)
