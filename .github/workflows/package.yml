@@ -20,7 +20,7 @@ jobs:
       - name: Zip datapack
         working-directory: capture_system
         run: |
-          mkdir output
+          mkdir ../output
           zip -r ../output/capture_system.zip ./
 
       - name: Create release
