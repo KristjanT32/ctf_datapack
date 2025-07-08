@@ -19,4 +19,3 @@ bossbar set capture:progress players @a
 bossbar set capture:progress visible false
 
 execute as @e[tag=ActivePoint] run execute at @s run function capture:point/init
-bossbar set capture:progress visible false
