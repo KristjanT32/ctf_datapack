@@ -23,20 +23,10 @@ jobs:
           cd capture_system
           zip -r ../output/capture_system.zip ./
 
-      - name: Delete existing 'latest' tag (if exists)
-        run: |
-          git tag -d latest || true
-          git push --delete origin latest || true
-
-      - name: Create and push 'latest' tag
-        run: |
-          git tag latest
-          git push origin latest
-
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
+          tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           files: output/capture_system.zip
         env:
