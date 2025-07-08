@@ -1,8 +1,9 @@
 scoreboard objectives add captureTimer dummy
 scoreboard objectives add absoluteCaptureTimer dummy
 scoreboard objectives add minusOne dummy
-scoreboard objectives add team dummy
-scoreboard objectives add count dummy
+
+team add team_usec "USEC"
+team add team_bear "BEAR"
 
 scoreboard players set constants minusOne -1
 

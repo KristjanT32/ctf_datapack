@@ -1,10 +1,10 @@
 # If the current entity is within 5 blocks of a player on team 1 (USEC) and not on team 2 (BEAR)
 # Increment the captureTimer for the CapturePoint
-execute as @e[tag=ActivePoint, tag=!Captured, tag=!Disabled] at @s run execute if entity @a[distance=..5, scores={team=1}] run scoreboard players add @s captureTimer 1 
+execute as @e[tag=ActivePoint, tag=!Captured, tag=!Disabled] at @s run execute if entity @a[distance=..5, team=team_bear] run scoreboard players add @s captureTimer 1 
 
 # If the current entity is within 5 blocks of a player on team 2 (BEAR) and not on team 1 (USEC)
 # Decrement the captureTimer for the CapturePoint
-execute as @e[tag=ActivePoint, tag=!Captured, tag=!Disabled] at @s run execute if entity @a[distance=..5, scores={team=2}] run scoreboard players remove @s captureTimer 1 
+execute as @e[tag=ActivePoint, tag=!Captured, tag=!Disabled] at @s run execute if entity @a[distance=..5, team=team_usec] run scoreboard players remove @s captureTimer 1 
 
 # Sync the absoluteCaptureTimer with the captureTimer's absolute value
 execute as @e[tag=ActivePoint, tag=!Captured, tag=!Disabled] at @s run scoreboard players operation @s absoluteCaptureTimer = @s captureTimer
